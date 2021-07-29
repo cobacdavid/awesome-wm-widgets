@@ -65,7 +65,7 @@ local function worker(args)
     if args == nil then
         return github_contributions_widget
     end
-        
+
     args = args or {}
     args.username             = args.username    or 'streetturtle'
     args.days                 = args.days        or 365
@@ -136,7 +136,7 @@ local function worker(args)
             table.insert(col, get_square(
                              date,
                              count,
-                             widget_themes[args.theme][tonumber(intensity)]                             
+                             widget_themes[args.theme][tonumber(intensity)]
             ))
             day_idx = day_idx + 1
         end
@@ -157,10 +157,10 @@ local function worker(args)
     github_textwidget:set_markup("<b>" .. args.username .. "</b>")
     github_contributions_widget:add_button(
         awful.button({}, 1, function()
-                awful.spawn(browser .. " https://github.com/" .. args.username)
+                awful.spawn(BROWSER .. " https://github.com/" .. args.username)
         end)
     )
-    
+
     return github_contributions_widget
 end
 
